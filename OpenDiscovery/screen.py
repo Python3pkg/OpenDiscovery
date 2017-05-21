@@ -5,8 +5,8 @@ import os
 import sys
 import glob
 import json
-from Vina import *
-from runProcess import runProcess
+from .Vina import *
+from .runProcess import runProcess
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
@@ -48,7 +48,7 @@ def run(options=[]):
 def tryForKeyInDict(needle, haystack, fallback):
     try:
         return haystack[needle]
-    except Exception, e:
+    except Exception as e:
         return fallback
 
 
@@ -444,7 +444,7 @@ class Screen(object):
         for receptor in receptors:
             confs, short_confs = [], []
             df = []
-            print receptor
+            print(receptor)
 
             for conf in glob.glob(self.ligand_dir + '/results-' + receptor + '/*/'):
 

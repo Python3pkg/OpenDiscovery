@@ -1,5 +1,5 @@
 import sys, os, errno, subprocess, glob
-from runProcess import runProcess
+from .runProcess import runProcess
 import pkg_resources
 
 def makeFolder(path):

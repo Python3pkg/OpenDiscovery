@@ -6,7 +6,7 @@ def expandPath(path):
 def tryForKeyInDict(needle, haystack, fallback):
 	try:
 		return haystack[needle]
-	except Exception, e:
+	except Exception as e:
 		return fallback
 
 def getFileNameFromPath(path):

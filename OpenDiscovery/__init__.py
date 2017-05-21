@@ -10,8 +10,8 @@ OD_VERSION = __version__
 import sys
 import os
 import errno
-from helpers import *
-from helpers.log import *
+from .helpers import *
+from .helpers.log import *
 
 
 def log(message="", verbose=True, colour=None, background=None, bold=False, underline=False, inverted=False, run=False, ret=False):
@@ -25,9 +25,9 @@ def log(message="", verbose=True, colour=None, background=None, bold=False, unde
         if ret:
             return message
         if run:
-            print message,
+            print(message, end=' ')
         else:
-            print message
+            print(message)
 
     elif 'darwin' in sys.platform:
         if verbose:
@@ -70,9 +70,9 @@ def log(message="", verbose=True, colour=None, background=None, bold=False, unde
             if ret:
                 return message
             if run:
-                print message,
+                print(message, end=' ')
             else:
-                print message
+                print(message)
 
     return
 
@@ -81,14 +81,14 @@ def logHeader(message):
     """logHeader() prints out a formatted message which is used for heading sections."""
 
     message = '\n{message}'.format(message=message)
-    print message
+    print(message)
 
 
 def printHeader(message):
     if 'linux' in sys.platform:
-        print """\r{message:<20} """.format(message=message)
+        print("""\r{message:<20} """.format(message=message))
     elif 'darwin' in sys.platform:
-        print """\r   \033[38;5;204m{message:<20}\033[0m """.format(message=message)
+        print("""\r   \033[38;5;204m{message:<20}\033[0m """.format(message=message))
 
 
 class ProgressBar(object):
@@ -141,5 +141,5 @@ def makeFolder(path):
 def tryForKeyInDict(needle, haystack, fallback):
     try:
         return haystack[needle]
-    except Exception, e:
+    except Exception as e:
         return fallback
